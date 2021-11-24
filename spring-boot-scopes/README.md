@@ -26,5 +26,3 @@ ApplicationContext apx2 = new AnnotationConfigApplicationContext(SpringScopesPro
 Author author3 =(Author)apx2.getBean("author");
 Author author4 =(Author)apx2.getBean("author");		
 ```
-
-**[Full example](https://github.com/ga7uti/spring-boot-scopes/blob/main/src/main/java/com/example/scopes/SpringScopesProjectApplication.java)**
