@@ -1,15 +1,15 @@
 package com.example.springdatajpa.entity;
 
-import java.util.Set;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
+import javax.persistence.Table;
 
 @Entity
+@Table(name = "author")
 public class Author {
 
     @Id
@@ -18,8 +18,9 @@ public class Author {
     private long authorId;
     @Column(name = "name")
     private String name;
-    @OneToMany
-    private Set<Book> books;
+
+    @OneToOne
+    private Book books;
 
     public Author() {
         super();
@@ -41,12 +42,12 @@ public class Author {
         this.name = name;
     }
 
-    public Set<Book> getBooks() {
+    public Book getBooks() {
         return books;
     }
 
-    public void setBooks(Set<Book> books) {
+    public void setBooks(Book books) {
         this.books = books;
     }
-
+    
 }
