@@ -7,8 +7,15 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
+import javax.persistence.Table;
+
+import org.hibernate.annotations.Cascade;
+import org.hibernate.annotations.CascadeType;
+
 
 @Entity
+@Table(name = "book")
 public class Book {
 
     @Id
@@ -19,10 +26,14 @@ public class Book {
     private String isbn;
     @Column(name = "title")
     private String title;
-    @ManyToOne
+
+    @OneToOne
+    @Cascade(CascadeType.ALL)
     private Author author;
+
     @ManyToOne
     @JoinColumn(name = "publication_id")
+    @Cascade(CascadeType.ALL)
     private Publication publications;
 
     public Book() {
